@@ -1,15 +1,27 @@
-import React, { Component } from "react";
-import GeneralInfo from "./components/GeneralInfo";
-import EducExp from "./components/EducExp"
-import WorkExp from "./components/WorkExp"
+import './App.css';
+import React from "react";
+import GeneralInfo from './components/GeneralInfo';
+import Header from './components/Header';
+class App extends React.Component {
+  constructor(props) {
+    super(props)
 
-class App extends Component {
-  render() {
+    this.state = {
+        user: {
+            firstName: "",
+            lastName: "",
+            Email: "",
+            phoneNumber: ""                
+        },
+    }
+}
+ 
+    render() {
+        const { user } = this.state;
     return (
-      <div>
-        <GeneralInfo />
-        <EducExp />
-        <WorkExp />
+        <div className="App">
+            <Header />
+          <GeneralInfo dataFromApp={user}/>
       </div>
     )
   }
