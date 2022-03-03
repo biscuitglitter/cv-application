@@ -37,8 +37,7 @@ body {
 label {
     width: 200px;
 }
-
-.saveButton {
+.buttonContainer {
   width: 500px;
   display: flex;
   justify-content: center;
@@ -48,10 +47,19 @@ label {
 button {
   background: #fff;
   border: 1px solid rgb(118, 118, 118);
-  color: rgb(77, 77, 77)
+  color: rgb(77, 77, 77);
+  border-radius: 2px;
+  width: 55px;
+  height: 25px;
 }
+
+p {
+  font-size: 15px;
+}
+
 
 .Header {
   margin-bottom: 30px;
   margin-top: 10px;
 }
+

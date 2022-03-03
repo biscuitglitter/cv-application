@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 
 class GeneralInfo extends React.Component {
-    constructor(props) {
-        super(props)
-
-    }
-
     render() {
         return (
             <div className="generalInfo">
@@ -22,11 +17,12 @@ class GeneralInfo extends React.Component {
                     <label> <p>Phone Number:</p>
                         <input type="text" id="firstNameInput" />
                     </label>
-                    <div className="saveButton">
-                        <button type="submit">
+                    <div className="buttonContainer">
+                        <button type="submit" onClick={this.props.makeDiv}>
                         Save
                     </button>
                     </div>
+                    {this.props.user.firstName}
                 </form>
             </div>
         )
@@ -34,4 +30,3 @@ class GeneralInfo extends React.Component {
 }
 export default GeneralInfo
 
-/* {this.props.dataFromApp.firstName} */
