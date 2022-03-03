@@ -8,57 +8,60 @@ export default class GeneralInfo extends React.Component {
             user: {
                 firstName: "",
                 lastName: "",
-                Email: "",
+                email: "",
                 phoneNumber: ""
             },
         }
     }
 
-    handleInputChange = e => {
-        this.setState({
-            user: {
-                firstName: e.target.value
-            }
-        })
+    handleChange = e => {
+        this.setState(
+            {
+                user: {
+                    [e.target.name]: e.target.value,
+                }
+            },
+        );
+        console.log(this.state.user.firstName)
     }
-
-
+  
     handleSubmit = e => {
         e.preventDefault()
         this.setState({
             user: {
                 firstName: "",
                 lastName: "",
-                Email: "",
+                email: "",
                 phoneNumber: ""
             }
         });
-        console.log(this.state.user.firstName)
+        alert("A form was submitted!")
     }
 
 
     render() {
+        const { user } = this.state 
         return (
             <div className="generalInfo">
-                <form className="form" onClick={this.handleSubmit}>
+                <form className="form" onSubmit={this.handleSubmit}>
                     <label>
                         <p>First Name: </p>
-                        <input type="text" id="firstNameInput" value={this.state.user.firstName} onChange={this.handleInputChange} />
+                        <input type="text" name="firstName" value={user.firstName} onChange={this.handleChange} />
                     </label>
 
                     <label>
                         <p>Last Name: </p>
-                        <input type="text" id="lastNameInput" value={this.state.user.lastName} onChange={this.handleInputChange}/>
+                        <input type="text" name="lastName" value={user.lastName} onChange={this.handleChange}/>
                     </label>
 
                     <label>
                         <p>Email: </p>
-                        <input type="text" id="firstNameInput" value={this.state.user.Email} onChange={this.handleInputChange}/>
+                        <input type="text" name="email" value={user.email} onChange={this.handleChange}/>
                     </label>
 
                     <label>
                         <p>Phone Number:</p>
-                        <input type="text" id="firstNameInput" value={this.state.user.phoneNumber} onChange={this.handleInputChange} />
+                        <input type="text" name="phoneNumber" value={user.phoneNumber} onChange={this.handleChange} />
                     </label>
 
                     <div className="buttonContainer">
