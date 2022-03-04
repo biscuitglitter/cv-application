@@ -51,10 +51,11 @@ h6 {
   justify-content: center;
 }
 
-.generalInfo {
+.generalInfo, .EducExp {
   display: flex;
   flex-direction: row;
   gap: 100px;
+  height: 200px;
 }
 
 .form {
@@ -95,7 +96,7 @@ button:hover {
 
 input {
   width: 190px;
-  height: 26px;
+  height: 20px;
   padding: 5px;
 }
 
@@ -108,7 +109,7 @@ p {
   font-size: 15px;
 }
 
-.formRendered {
+.formRendered, .workExpRendered {
   font-family: 'Montserrat', sans-serif;
   padding: 10px;
   padding-top: 20px;
@@ -122,22 +123,33 @@ p {
 
 .fullName {
   font-size: 28px;
-  color: lightblue;
+  color: #195c70;
+  font-weight: 900;
 }
 
 h1 {
   font-size: 18px;
 }
 
-.mainInfo {
+.mainInfoContainer, .workExpContainer {
   display: flex;
   flex-direction: column;
   height: 70px;
 }
-.profession {
-  font-size: 19px;
-}
+
 
 .email {
   font-size: 13px;
+}
+
+.fullName {
+  font-size: 28px;
+  color: #195c70;
+  font-weight: 900;
+}
+
+.profession {
+  font-size: 19px;
+  color: #5e5e5e;
+  font-weight: 590;
 }
