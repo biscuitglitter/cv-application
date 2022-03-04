@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
-
-*,
-*::before,
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');*::before,
 *::after {
   box-sizing: border-box;
 }
@@ -9,7 +7,8 @@
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: "Rubik", sans-serif;
 }
@@ -18,39 +17,61 @@ body {
   line-height: 1.5;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
   hyphens: auto;
 }
 
 .App {
+  margin-left: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.generalInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
 }
 
 .form {
-    width: 500px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+  border-radius: 3px;
+  max-width: 300px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
 }
 
 label {
   width: 200px;
 }
+
 .buttonContainer {
   width: 500px;
   display: flex;
@@ -62,7 +83,7 @@ button {
   background: #fff;
   border: 1px solid rgb(118, 118, 118);
   color: #000000;
-  border-radius: 2px;
+  border-radius: 3px;
   width: 55px;
   height: 25px;
   font-size: 14.5px;
@@ -70,6 +91,12 @@ button {
 
 button:hover {
   border: 1px solid blue;
+}
+
+input {
+  width: 190px;
+  height: 26px;
+  padding: 5px;
 }
 
 input:focus {
@@ -81,8 +108,36 @@ p {
   font-size: 15px;
 }
 
-.Header {
-  margin-bottom: 30px;
-  margin-top: 10px;
+.formRendered {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 500px;
+  height: 70px;
+  justify-content: space-between;
 }
 
+.fullName {
+  font-size: 28px;
+  color: lightblue;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+}
+.profession {
+  font-size: 19px;
+}
+
+.email {
+  font-size: 13px;
+}

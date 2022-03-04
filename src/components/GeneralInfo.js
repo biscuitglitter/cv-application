@@ -4,12 +4,13 @@ export default class GeneralInfo extends React.Component {
     constructor(props) {
         super(props)
 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+
         this.state = {
             user: {
-                firstName: "",
-                lastName: "",
+                fullName: "",
                 email: "",
-                phoneNumber: ""
             },
         }
     }
@@ -18,59 +19,45 @@ export default class GeneralInfo extends React.Component {
         this.setState(
             {
                 user: {
+                    ...this.state.user,
                     [e.target.name]: e.target.value,
-                }
+                },
             },
         );
-        console.log(this.state.user.firstName)
     }
-  
+
     handleSubmit = e => {
-        e.preventDefault()
-        this.setState({
-            user: {
-                firstName: "",
-                lastName: "",
-                email: "",
-                phoneNumber: ""
-            }
-        });
-        alert("A form was submitted!")
+        e.preventDefault();
     }
-
-
     render() {
-        const { user } = this.state 
+
         return (
             <div className="generalInfo">
-                <form className="form" onSubmit={this.handleSubmit}>
+                <form className="form">
+                <h1>Personal Details</h1>
                     <label>
-                        <p>First Name: </p>
-                        <input type="text" name="firstName" value={user.firstName} onChange={this.handleChange} />
+                        <input type="text" placeholder="full name" name="fullName" value={this.state.fullName} onChange={this.handleChange} />
                     </label>
 
                     <label>
-                        <p>Last Name: </p>
-                        <input type="text" name="lastName" value={user.lastName} onChange={this.handleChange}/>
+                        <input type="text" placeholder="profession" name="profession" value={this.state.phoneNumber} onChange={this.handleChange} />
                     </label>
 
                     <label>
-                        <p>Email: </p>
-                        <input type="text" name="email" value={user.email} onChange={this.handleChange}/>
+                        <input type="text" placeholder="email@example.com" name="email" value={this.state.email} onChange={this.handleChange} />
                     </label>
-
-                    <label>
-                        <p>Phone Number:</p>
-                        <input type="text" name="phoneNumber" value={user.phoneNumber} onChange={this.handleChange} />
-                    </label>
-
-                    <div className="buttonContainer">
-                        <button type="submit"> Save </button>
-                    </div>
                 </form>
+                <div className="formRendered">
+                    <div className="mainInfo">
+                    <div className="fullName"> {this.state.user.fullName} </div>
+                    <div className="profession"> {this.state.user.profession} </div>
+                    <div className="email"> {this.state.user.email} </div>
+                    </div>
+                </div>
             </div>
         )
     }
 }
+
 
 
