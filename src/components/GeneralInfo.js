@@ -1,4 +1,6 @@
 import React from "react";
+import './styles/GeneralInfo.css'
+
 
 export default class GeneralInfo extends React.Component {
     constructor(props) {
@@ -10,6 +12,7 @@ export default class GeneralInfo extends React.Component {
         this.state = {
             user: {
                 fullName: "",
+                profession: "",
                 email: "",
             },
         }

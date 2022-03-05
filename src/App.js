@@ -1,14 +1,14 @@
 import './App.css';
 import React from "react";
 import GeneralInfo from './components/GeneralInfo';
-import EducExp from './components/EducExp';
+import WorkExperience from './components/WorkExperience';
 
 class App extends React.Component {
      render() {
       return (
         <div className="App">
           <GeneralInfo />
-          <EducExp />
+          <WorkExperience />
         </div>
       )
     }
