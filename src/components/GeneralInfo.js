@@ -28,8 +28,8 @@ export default class GeneralInfo extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        this.setState({ component: <div className="formRendered">
-        <div className="mainInfoContainer">
+        this.setState({ component: <div className="generalInfoRendered">
+        <div className="generalInfoContainer">
         <div className="fullName"> {this.state.user.fullName} </div>
         <div className="profession"> {this.state.user.profession} </div>
         <div className="email"> {this.state.user.email} </div>
@@ -45,11 +45,9 @@ export default class GeneralInfo extends React.Component {
                     <label>
                         <input type="text" placeholder="full name" name="fullName" value={this.state.fullName} onChange={this.handleChange} />
                     </label>
-
                     <label>
                         <input type="text" placeholder="profession" name="profession" value={this.state.phoneNumber} onChange={this.handleChange} />
                     </label>
-
                     <label>
                         <input type="text" placeholder="email@example.com" name="email" value={this.state.email} onChange={this.handleChange} />
                     </label>
