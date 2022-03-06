@@ -48,12 +48,11 @@ h6 {
   margin-left: 35px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .form {
   border-radius: 3px;
-  max-width: 300px;
+  max-width: 250px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

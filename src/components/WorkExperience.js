@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
+import './styles/WorkExperience.css'
+import uniqid from "uniqid";
+
+
 
 export default class WorkExperience extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			listOfJobs: [
-				{ jobTitle: "systems engineer", company: "ibm", fromDate: "11-2021", untilDate: "04-2022", description: "very good and enriching experience" },
-			],
-			newJob: { jobTitle: "", company: "", fromDate: "", untilDate: "", description: "" }
+			listOfJobs: [],
+			newJob: { jobTitle: "", company: "", sinceDate: "", untilDate: "", description: "", id: uniqid()}
 		}
 	}
 
-		updateValue = (event) => {
+		handleChange = (event) => {
 			this.setState(
 				{
 					newJob: {
 						...this.state.newJob,
+						id: this.state.newJob.id,
 						[event.target.name]: event.target.value
 					}
 				},
 			);
 		};
 	
-		newJob = () => {
+	addNewJob = e => {
+			e.preventDefault()
 			this.setState({
 				listOfJobs: [
 					...this.state.listOfJobs,
@@ -32,22 +36,44 @@ export default class WorkExperience extends Component {
 			});
 		};
 	
-		jobList = () =>
-			this.state.listOfJobs.map((item) => (
-				console.log( `${item.description}` )
-			));
-		
-		render = () => (
-			<div className="container">
-				<div className="row">
-		<label><input type="text" placeholder="job" name="jobTitle" value={this.state.job} onChange={this.updateValue} /></label>
-		<label><input type="text" placeholder="company" name="company" value={this.state.company} onChange={this.updateValue} /></label>
-		<label><input type="text" placeholder="fromDate" name="fromDate" value={this.state.fromDate} onChange={this.updateValue} /></label>
-		<label><input type="text" placeholder="untilDate" name="untilDate" value={this.state.untilDate} onChange={this.updateValue} /></label>
-		<label><input type="text" placeholder="description" name="description" value={this.state.description} onChange={this.updateValue} /></label>
-					<button onClick={this.newJob}> Add	</button>
-					<button onClick={this.jobList}> Joblist	</button>
+	
+	render = () => (
+			<div className="workExp">
+			<form className="form">
+				<h1>Work Experience</h1>
+		<label><input type="text" placeholder="job title" name="jobTitle" value={this.state.job} onChange={this.handleChange} /></label>
+		<label><input type="text" placeholder="company" name="company" value={this.state.company} onChange={this.handleChange} /></label>
+		<label><input type="text" placeholder="since date:" name="sinceDate" value={this.state.fromDate} onChange={this.handleChange} /></label>
+		<label><input type="text" placeholder="until date:" name="untilDate" value={this.state.untilDate} onChange={this.handleChange} /></label>
+		<label><input type="text" placeholder="description" name="description" value={this.state.description} onChange={this.handleChange} /></label>
+				<button onClick={this.addNewJob}> Add	</button>
+			</form>
+			<div className="listAllJobs">
+			{this.state.listOfJobs.map((item) => {
+					return <div className="aNewJobRendered" key={item.id}>
+                <div className="workExpContainer">
+                    <div className="topContainer">
+                    <div className="topLeft">
+                    <div className="company"> {item.company} </div>
+                    <div className="jobTitle"> {item.jobTitle} </div>
+                    </div>
+                    <div className="topRight">
+                    <div className="sinceDate"> {item.sinceDate} </div>
+                    <div className="untilDate"> {item.untilDate} </div>
+                        </div>
+                        </div>
+                    <div className="middle">
+                        <div className="description"> {item.description} </div>
+                        </div>
+                </div>
+				</div>;
+			})}
 				</div>
-			</div>
+		</div>
 		);
 	}
+
+	
+
+
+	
