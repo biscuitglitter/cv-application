@@ -1,7 +1,7 @@
 .generalInfo {
   display: flex;
   flex-direction: row;
-  gap: 70px;
+  gap: 120px;
   padding: 15px;
   padding-left: 5px;
   padding-bottom: 0;
@@ -30,6 +30,7 @@
 }
 
 .generalInfoContainer {
+  padding-top: 35px;
   display: flex;
   flex-direction: column;
   height: 70px;

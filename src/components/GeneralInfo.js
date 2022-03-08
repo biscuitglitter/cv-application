@@ -34,7 +34,7 @@ export default class GeneralInfo extends React.Component {
         this.setState({ component: <div className="generalInfoRendered">
         <div className="generalInfoContainer">
         <div className="fullName"> {this.state.user.fullName} </div>
-        <div className="profession"> {this.state.user.profession} </div>
+        <div className="currentProfession"> {this.state.user.profession} </div>
         <div className="email"> {this.state.user.email} </div>
         </div>
     </div> });         

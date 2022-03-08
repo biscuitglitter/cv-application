@@ -1,7 +1,7 @@
 .workExp {
   display: flex;
   flex-direction: row;
-  gap: 70px;
+  gap: 120px;
   padding: 15px;
   padding-left: 5px;
   padding-bottom: 0;
@@ -22,8 +22,8 @@
   flex-direction: row;
   width: 300px;
   justify-content: space-between;
-  height: 145px;
-  width: 300px;
+  height: 100px;
+  width: 400px;
 }
 
 .workExpContainer {
@@ -31,6 +31,10 @@
   flex-direction: column;
   height: 100px;
   gap: 5px;
+  overflow: hidden;
+  min-width: 340px;
+  padding: 10px;
+  padding-bottom: 5px;
 }
 
 .topContainer {
@@ -46,25 +50,64 @@
   align-items: flex-start;
 }
 
-.topRight {
+.datesContainer {
   display: flex;
   flex-direction: row;
-  font-size: 13px;
-  gap: 5px;
+  font-size: 12px;
+  gap: 3px;
+  color: #5e5e5e;
+  justify-content: flex-end;
+}
+
+.topRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .listAllJobs {
   display: flex;
   flex-direction: column;
-  padding-top: 45px;
 }
 
 .jobTitle {
-  font-size: 17px;
-  color: #5e5e5e;
-  font-weight: 590;
+  font-size: 15px;
+  color: #195c70;
+  font-weight: 600;
 }
 
 .sinceDate, .untilDate {
   font-size: 14px;
+}
+
+.description {
+  font-size: 13px;
+}
+
+.company {
+  color: #5e5e5e;
+}
+
+.betweenDates {
+  font-size: 17px;
+  font-weight: 500;
+  height: 15px;
+}
+
+.closeButton {
+  font-size: 13px;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
+.closeButton:hover {
+  border: none;
+  font-weight: 600;
 }

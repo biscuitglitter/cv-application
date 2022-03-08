@@ -86,14 +86,10 @@ button:hover {
 }
 
 input {
+  font-size: 14px;
   width: 190px;
   height: 20px;
   padding: 5px;
-}
-
-input:focus {
-  outline-color: blue;
-  outline: blue;
 }
 
 p {
@@ -107,7 +103,7 @@ p {
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 
