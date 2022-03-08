@@ -7,11 +7,17 @@ import uniqid from "uniqid";
 export default class WorkExperience extends Component {
 	constructor(props) {
 		super(props);
+		this.inputText1 = React.createRef()
+		this.inputText2 = React.createRef()
+		this.inputText3 = React.createRef()
+		this.inputText4 = React.createRef()
+		this.inputText5 = React.createRef()
 
 		this.state = {
 			listOfJobs: [],
 			newJob: { jobTitle: "", company: "", sinceDate: "", untilDate: "", description: "", id: uniqid() },
 		}
+
 	}
 	handleChange = (event) => {
 		this.setState(
@@ -25,39 +31,42 @@ export default class WorkExperience extends Component {
 		);
 	};
 
-	addNewJob = e => {
-		e.preventDefault()
+	addNewJob = (event) => {
+		event.preventDefault()
 		this.setState({
 			listOfJobs: [
 				...this.state.listOfJobs,
 				this.state.newJob,
 			],
-		});
+		},
+			() => {
+				this.inputText1.current.value = ""
+				this.inputText2.current.value = ""
+				this.inputText3.current.value = ""
+				this.inputText4.current.value = ""
+				this.inputText5.current.value = ""
+			})
 	};
 
-	deleteJob = (deletedJob, index) => event => {
-		console.log("deletedJob:", deletedJob);
+	handleDelete = (deletedJob, index) => event => {
 		const filteredJobs = this.state.listOfJobs.filter(item => {
 		  return item !== deletedJob;
 		});
 		this.setState({
 		  listOfJobs: filteredJobs
-		},
-			() => console.log("index:", index)
-		);
-	  };
-
+		});
+	};
 	
 	render = () => (
 		<div className="workExp">
 			<form className="form">
 				<h1>Work Experience</h1>
-				<label><input type="text" placeholder="job title" name="jobTitle" value={this.state.job} onChange={this.handleChange} /></label>
-				<label><input type="text" placeholder="company" name="company" value={this.state.company} onChange={this.handleChange}  /></label>
-				<label><input type="text" placeholder="since" name="sinceDate" value={this.state.fromDate} onChange={this.handleChange} /></label>
-				<label><input type="text" placeholder="until" name="untilDate" value={this.state.untilDate} onChange={this.handleChange} /></label>
-				<label><input type="text" placeholder="description" name="description" value={this.state.description} onChange={this.handleChange} /></label>
-				<button onClick={this.addNewJob}> Add </button>
+				<label><input type="text" ref={this.inputText1} placeholder="job title" name="jobTitle" value={this.state.job} onChange={this.handleChange} required /></label>
+				<label><input type="text" ref={this.inputText2} placeholder="company" name="company" value={this.state.company} onChange={this.handleChange}  /></label>
+				<label><input type="text" ref={this.inputText3} placeholder="since" name="sinceDate" value={this.state.fromDate} onChange={this.handleChange} /></label>
+				<label><input type="text" ref={this.inputText4} placeholder="until" name="untilDate" value={this.state.untilDate} onChange={this.handleChange} /></label>
+				<label><input type="text" ref={this.inputText5} placeholder="description" name="description" value={this.state.description} onChange={this.handleChange} /></label>
+				<button type="submit" onClick={this.addNewJob}> Add </button>
 			</form>
 			<div className="listAllJobs">
 				{this.state.listOfJobs.map((item, index) => {
@@ -65,13 +74,13 @@ export default class WorkExperience extends Component {
 						<div className="workExpContainer">
 							<div className="topContainer">
 								<div className="topLeft">
-									<div className="jobTitle" onDoubleClick={this.changeEditMode}> {item.jobTitle} </div>
-									<div className="company" > {item.company} </div>
+									<div className="jobTitle"> {item.jobTitle} </div>
+									<div className="company"> {item.company} </div>
 								</div>
 
 								<div className="topRight">
 									<div className="buttonContainer">
-								<button className="closeButton" onClick={this.deleteJob(item)} key={index}> X </button>
+								<button className="closeButton" onClick={this.handleDelete(item)} key={index}> X </button>
 									</div>
 									<div className="datesContainer"> 
 									<div className="sinceDate"> {item.sinceDate} </div>
