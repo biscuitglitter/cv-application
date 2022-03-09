@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './styles/WorkExperience.css'
 import uniqid from "uniqid";
 
-
-
 export default class WorkExperience extends Component {
 	constructor(props) {
 		super(props);
@@ -18,8 +16,8 @@ export default class WorkExperience extends Component {
 			newJob: { jobTitle: "", company: "", sinceDate: "", untilDate: "", description: "", id: uniqid() },
 			errors: {}
 		}
-
 	}
+
 	handleChange = (event) => {
 		this.setState(
 			{
@@ -32,10 +30,20 @@ export default class WorkExperience extends Component {
 		);
 	};
 
-		handleEdit = (id) => event => {
+	handleEdit = (id) => event => {
 		const indexJob = this.state.listOfJobs.findIndex(item => item.id === id);
 		const targetedJob = this.state.listOfJobs[indexJob]
-		this.setState(
+		const newList = this.state.listOfJobs.filter(item => {
+			return item.id !== targetedJob.id;
+		})
+		this.setState({
+			listOfJobs: newList,
+			newJob: {
+				...this.state.listOfJobs[indexJob],
+				id: this.state.newJob.id,
+				[event.target.name]: event.target.value
+			}
+		},
 			() => {
 				this.inputText1.current.value = targetedJob.jobTitle
 				this.inputText2.current.value = targetedJob.company
@@ -45,7 +53,6 @@ export default class WorkExperience extends Component {
 			}
 		)
 	}
-
 
 	onSubmitJob = (event) => {
 		event.preventDefault()
@@ -67,21 +74,21 @@ export default class WorkExperience extends Component {
 
 	handleDelete = (deletedJob, index) => event => {
 		const filteredJobs = this.state.listOfJobs.filter(item => {
-		  return item !== deletedJob;
+			return item !== deletedJob;
 		});
 		this.setState({
-		  listOfJobs: filteredJobs
+			listOfJobs: filteredJobs
 		});
 	};
-	
+
 	render = () => (
 		<div className="workExp">
 			<form className="form">
 				<h1>Work Experience</h1>
 				<label><input type="text" ref={this.inputText1} placeholder="job title" name="jobTitle" value={this.state.job} onChange={this.handleChange} /></label>
-				<label><input type="text" ref={this.inputText2} placeholder="company" name="company" value={this.state.company} onChange={this.handleChange}   /></label>
-				<label><input type="text" ref={this.inputText3} placeholder="since" name="sinceDate" value={this.state.fromDate} onChange={this.handleChange}  /></label>
-				<label><input type="text" ref={this.inputText4} placeholder="until" name="untilDate" value={this.state.untilDate} onChange={this.handleChange}  /></label>
+				<label><input type="text" ref={this.inputText2} placeholder="company" name="company" value={this.state.company} onChange={this.handleChange} /></label>
+				<label><input type="text" ref={this.inputText3} placeholder="since" name="sinceDate" value={this.state.fromDate} onChange={this.handleChange} /></label>
+				<label><input type="text" ref={this.inputText4} placeholder="until" name="untilDate" value={this.state.untilDate} onChange={this.handleChange} /></label>
 				<label><input type="text" ref={this.inputText5} placeholder="description" name="description" value={this.state.description} onChange={this.handleChange} /></label>
 				<button type="submit" onClick={this.onSubmitJob}> Add </button>
 			</form>
@@ -99,10 +106,10 @@ export default class WorkExperience extends Component {
 									<div className="buttonContainer">
 										<button className="closeButton" onClick={this.handleDelete(item)} key={index}> X </button>
 									</div>
-									<div className="datesContainer"> 
-									<div className="sinceDate"> {item.sinceDate} </div>
-									<div className="betweenDates"> - </div>
-									<div className="untilDate"> {item.untilDate} </div> </div>
+									<div className="datesContainer">
+										<div className="sinceDate"> {item.sinceDate} </div>
+										<div className="betweenDates"> - </div>
+										<div className="untilDate"> {item.untilDate} </div> </div>
 								</div>
 							</div>
 							<div className="middle">
