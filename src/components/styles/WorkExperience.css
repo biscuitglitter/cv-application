@@ -23,7 +23,8 @@
   width: 300px;
   justify-content: space-between;
   height: 100px;
-  width: 400px;
+  padding-bottom: 5px;
+
 }
 
 .workExpContainer {
@@ -33,8 +34,8 @@
   gap: 5px;
   overflow: hidden;
   min-width: 340px;
+  max-width: 340px;
   padding: 10px;
-  padding-bottom: 5px;
 }
 
 .topContainer {
@@ -101,14 +102,17 @@
 }
 
 .closeButton {
-  font-size: 13px;
   border: none;
   width: 20px;
   height: 20px;
-  cursor: pointer;
 }
 
 .closeButton:hover {
   border: none;
   font-weight: 600;
+}
+
+button {
+  font-size: 13px;
+  cursor: pointer;
 }
