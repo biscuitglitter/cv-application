@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/cv-builder/static/css/main.e9202822.css",
-    "main.js": "/cv-builder/static/js/main.cfdf210c.js",
-    "index.html": "/cv-builder/index.html",
-    "main.e9202822.css.map": "/cv-builder/static/css/main.e9202822.css.map",
-    "main.cfdf210c.js.map": "/cv-builder/static/js/main.cfdf210c.js.map"
+    "main.css": "/cv-application/static/css/main.e9202822.css",
+    "main.js": "/cv-application/static/js/main.cfdf210c.js",
+    "index.html": "/cv-application/index.html",
+    "main.e9202822.css.map": "/cv-application/static/css/main.e9202822.css.map",
+    "main.cfdf210c.js.map": "/cv-application/static/js/main.cfdf210c.js.map"
   },
   "entrypoints": [
     "static/css/main.e9202822.css",
