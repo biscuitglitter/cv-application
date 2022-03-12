@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
-import GeneralInfo from './components/GeneralInfo';
-import WorkExperience from './components/WorkExperience';
+import GeneralInfo from './funcComponents/GeneralInfo';
+import WorkExperience from './funcComponents/WorkExperience';
 
 class App extends React.Component {
      render() {
