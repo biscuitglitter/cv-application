@@ -1,7 +1,6 @@
 import React from "react";
 import './styles/GeneralInfo.css'
 
-
 export default class GeneralInfo extends React.Component {
     constructor(props) {
         super(props)

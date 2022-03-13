@@ -1,14 +1,13 @@
 import './App.css';
 import React from "react";
-import GeneralInfo from './funcComponents/GeneralInfo';
-import WorkExperience from './funcComponents/WorkExperience';
+import GenInfo from './funcComponents/GenInfo';
+// import WorkExp from './funcComponents/WorkExp';
 
 class App extends React.Component {
      render() {
       return (
         <div className="App">
-          <GeneralInfo />
-          <WorkExperience />
+          <GenInfo />
         </div>
       )
     }
